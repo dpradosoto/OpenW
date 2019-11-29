@@ -7,8 +7,7 @@ pipeline {
            sh 'doker build -y app .'
           
            }
-        }
-        post{ 
+            post{ 
             always{
             echo "esto siempre saldra "
             }
@@ -19,6 +18,8 @@ pipeline {
             success{
             echo "paso"
             }
+        }
+       
         
         }
         stage('test2') {
