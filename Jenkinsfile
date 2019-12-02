@@ -25,7 +25,6 @@ pipeline {
         stage('test') {
             steps {
             echo 'Hello2' 
-            sh '/bin/nc -vz localhost 22' 
             sh '/bin/nc -vz localhost 8080' 
             }
         }
@@ -34,7 +33,7 @@ pipeline {
             steps {
             echo 'Hello3'   
             sh 'docker tag app:test app:stable'
-            sh 'docker push app:test app:stable'
+            sh 'docker push dpradosoto/app:stable'
             }
             
           post{
