@@ -1,6 +1,7 @@
 FROM nginx:latest
-RUN apt update
-RUN apt install git
+RUN apk update && \
+    apk add --update git
+RUN apk install git\  
 RUN git --version
 RUN git clone https://github.com/dpradosoto/OpenW.git
 RUN ls
