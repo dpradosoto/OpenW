@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
            steps {
            echo 'Hello'
-           sh 'docker build -t app .'
+           sh 'docker build -t app:test .'
           
            }
             post{ 
@@ -22,17 +22,19 @@ pipeline {
        
         
         }
-        stage('test2') {
+        stage('test') {
             steps {
-            echo 'Hello2'  
-            
+            echo 'Hello2' 
+            sh '/bin/nc -vz localhost 22' 
+            sh '/bin/nc -vz localhost 80' 
             }
         }
 
-        stage('test3') {
+        stage('Push Eegistry') {
             steps {
             echo 'Hello3'   
-            
+            sh 'docker tag app:test app:stable'
+            sh 'docker push app:test app:stable'
             }
             
           post{
