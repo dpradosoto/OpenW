@@ -25,8 +25,7 @@ pipeline {
         stage('test') {
             steps {
             echo 'Hello2' 
-            sh 'sudo apt install netcat'
-            sh 'docker run -rm --name app -id -p 80:80 app:test' 
+            sh 'docker run --rm --name app -id -p 80:80 app:test' 
             sh 'nc -vz localhost 80' 
             }
             post{
