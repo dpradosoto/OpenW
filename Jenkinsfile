@@ -38,7 +38,7 @@ pipeline {
         stage('Push Registry') {
             steps {
             echo 'Hello3'   
-            sh 'docker tag app dpradosoto/app:stable'
+            sh 'docker tag app:test dpradosoto/app:stable'
             sh 'docker push dpradosoto/app:stable'
             }
             
