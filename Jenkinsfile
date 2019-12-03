@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-        stage('Push Eegistry') {
+        stage('Push Registry') {
             steps {
             echo 'Hello3'   
             sh 'docker tag app:test app:stable'
