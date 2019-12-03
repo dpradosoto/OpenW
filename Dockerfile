@@ -1,3 +1,3 @@
 FROM nginx:latest
-COPY startbootstrap-resume-gh-pages /usr/share/nginx/html
+COPY OpenW /usr/share/nginx/html
 EXPOSE 80 
