@@ -25,7 +25,7 @@ pipeline {
         stage('test') {
             steps {
             echo 'Hello2' 
-            sh 'docker run -it app' 
+            sh 'docker run -d app' 
             sh 'nc -vz localhost 80' 
             }
             post{
