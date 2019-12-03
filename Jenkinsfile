@@ -38,8 +38,11 @@ pipeline {
         stage('Push Registry') {
             steps {
             echo 'Hello3'   
-            sh 'docker tag app:test dpradosoto/app:stable'
-            sh 'docker push dpradosoto/app:stable'
+            withCredentials([usernamePassword(credentialsId: 'dpsDH', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                sh 'docker tag app:test dpradosoto/app:stable'
+                sh 'docker push dpradosoto/app:stable'
+            }
+            
             }
             
          
