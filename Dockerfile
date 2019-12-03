@@ -1,3 +1,3 @@
 FROM nginx:latest
-COPY OpenW /usr/share/nginx/html
+ADD SRC /usr/share/nginx/html
 EXPOSE 80 
