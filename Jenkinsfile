@@ -25,7 +25,7 @@ pipeline {
         stage('test') {
             steps {
             echo 'Hello2' 
-            sh 'docker run --rm --name app -id -p 80:80 app:test' 
+            sh 'docker run -it app' 
             sh 'nc -vz localhost 80' 
             }
             post{
@@ -38,7 +38,7 @@ pipeline {
         stage('Push Registry') {
             steps {
             echo 'Hello3'   
-            sh 'docker tag app:test dpradosoto/app:stable'
+            sh 'docker tag app dpradosoto/app:stable'
             sh 'docker push dpradosoto/app:stable'
             }
             
